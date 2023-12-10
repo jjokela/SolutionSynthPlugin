@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "description": "Generate personas for solving a scenario",
+  "execution_settings": [
+    {
+      "max_tokens": 3000,
+      "temperature": 0.2,
+      "top_p": 0.0,
+      "presence_penalty": 0.0,
+      "frequency_penalty": 0.0
+    }
+  ],
+  "input_variables": [
+    {
+      "name": "input",
+      "description": "Scenario description",
+      "default": ""
+    },
+    {
+      "name": "numberOfPersonas",
+      "description": "Number of personas to create",
+      "default": "1"
+    }
+  ]
+}

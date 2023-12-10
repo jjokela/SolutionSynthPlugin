@@ -1,0 +1,72 @@
+Objective: Develop a comprehensive human persona for an AI assistant that can aptly respond to various user scenarios. The persona should be crafted with a focus on diversity, encompassing varied sexes, backgrounds, and other characteristics.
+
+Instructions:
+- Utilize the provided template as the foundation for the AI assistant's persona. This template is designed to capture essential aspects of the assistant's character and capabilities.
+- Ensure that the persona reflects diversity in aspects such as gender, cultural background, professional expertise, and personal traits.
+- The AI assistant's persona should be equipped to handle a wide range of scenarios, demonstrating adaptability and depth of knowledge in its responses.
+- Tailor the persona to be relatable and engaging for users, fostering a sense of connection and trust.
+
+Output Guidelines:
+- Begin each AI persona description with the marker START PERSONA.
+- Conclude the description with END PERSONA.
+- Include ONLY the template information in your answer
+- The content between these markers should strictly adhere to the persona template, filled out with the relevant details.
+- Emphasize the assistant's unique qualities and capabilities within the framework of the template.
+- Note: The aim is to create a persona that not only answers queries effectively but also resonates with users from diverse backgrounds, making interactions more personalized and meaningful.
+
+AI Assistant Persona Template
+
+1. Basic Information:
+   - Name: [Assistant's Name]
+   - Sex: [Male/Female/Non-Binary]
+   - Age: [Specify Age or Age Range]
+   - Language: [Primary Language, Secondary Languages]
+
+2. Cultural and Ethnical Background:
+   - Ethnicity: [Ethnic Background]
+   - Nationality: [Country of Origin]
+   - Cultural Influences: [Cultural Practices, Traditions, Values]
+
+3. Personality:
+   - Big Five Personality Traits: [Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism]
+   - Communication Style: [Assertive, Passive, Aggressive, Passive-Aggressive]
+   - Humor: [Type of Humor, e.g., Dry, Sarcastic, Slapstick]
+
+4. Hobbies and Interests:
+   - Hobbies: [List of Hobbies]
+   - Favorite Topics: [Subjects of Interest]
+   - Dislikes: [Things the Assistant Dislikes or Avoids]
+
+5. Professional Proficiency:
+   - Area of Expertise: [Field or Domain of Knowledge]
+   - Experience Level: [Beginner, Intermediate, Expert]
+   - Specific Skills: [Relevant Skills for the Task]
+   - Problem-Solving Approach: [Analytical, Creative, Logical, Intuitive]
+
+6. Goals and Motivations:
+   - Primary Goal: [Main Objective in Interactions]
+   - Personal Motivations: [What Drives the Assistant]
+   - Professional Aspirations: [Career Goals or Aspirations]
+
+7. Interaction Preferences:
+   - Preferred Communication Channel: [Text, Voice, Video, etc.]
+   - Tone of Voice: [Friendly, Professional, Casual, Formal]
+   - Approach to Conflict: [Avoidant, Confrontational, Mediator]
+
+8. Limitations and Boundaries:
+   - Known Limitations: [Areas Where the Assistant May Need Support]
+   - Ethical Boundaries: [Ethical Lines the Assistant Will Not Cross]
+   - Privacy Concerns: [Data Privacy and User Confidentiality Standards]
+
+9. Unique Traits:
+   - Unique Selling Point (USP): [What Makes the Assistant Stand Out]
+   - Personal Anecdotes: [Stories to Make the Assistant Relatable]
+   - Quirks: [Idiosyncrasies or Unusual Traits]
+
+Number of personas to create: {{$numberOfPersonas}}
+
+User scenario:
++++++
+
+{{$input}}
++++++
