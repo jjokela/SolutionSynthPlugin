@@ -1,4 +1,4 @@
-﻿# SolutionSythPlugin
+﻿# SolutionSynthPlugin
 
 ## Rationale
 In group decision-making scenarios, effectiveness is often heightened when the group's members come from diverse backgrounds and hold divergent opinions. This diversity fosters a broader range of perspectives, leading to more innovative solutions. However, in many corporate environments, decision-makers may have collaborated for extended periods, leading to a convergence of thought processes, even among individuals with varied backgrounds. Long-term collaboration can inadvertently homogenize opinions, diminishing the benefits of diversity.
