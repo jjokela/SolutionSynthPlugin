@@ -3,6 +3,8 @@ using Polly;
 using SolutionSynthPlugin.plugins.NativePlugins;
 using SolutionSynthPlugin.Services;
 
+using Kernel = Microsoft.SemanticKernel.Kernel;
+
 namespace SolutionSynthPlugin;
 
 public class SolutionSynthRunner
@@ -18,6 +20,7 @@ public class SolutionSynthRunner
     private readonly Logger _logger;
     private readonly Kernel _kernel;
 
+
     public SolutionSynthRunner()
     {
         var (openaiApiKey, openaiModel, logBaseFolder) = EnvLoader.LoadEnvVariables();
@@ -26,7 +29,7 @@ public class SolutionSynthRunner
 
         _pipeline = Settings.PolicySettings.GetResiliencePipeline();
 
-        _kernel = new KernelBuilder()
+        _kernel = Kernel.CreateBuilder()
             .AddOpenAIChatCompletion(openaiModel, openaiApiKey)
             .Build();
     }
@@ -50,7 +53,12 @@ public class SolutionSynthRunner
 
         await _logger.WriteToFile(PersonasFileName, personaResult.GetValue<string>());
 
-        var personas = await _kernel.InvokeAsync<string[]>(personaExtractorPlugin["ExtractPersonas"], new(personaResult.GetValue<string>()));
+        var personas = await _kernel.InvokeAsync<string[]>(
+            personaExtractorPlugin["ExtractPersonas"], 
+            new KernelArguments
+            {
+                ["input"] = personaResult.GetValue<string>()
+            });
 
         var proposals = await GetProposals(personas, _kernel, personaFunctions, scenarioDescription);
 
@@ -70,7 +78,7 @@ public class SolutionSynthRunner
         Console.WriteLine(decisionResult);
     }
 
-    private async Task<List<string?>> GetProposals(string[]? personas, Kernel kernel, IKernelPlugin personaFunctions, string scenarioDescription)
+    private async Task<List<string?>> GetProposals(string[]? personas, Kernel kernel, KernelPlugin personaFunctions, string scenarioDescription)
     {
         if (personas is null || personas.Length == 0)
         {
@@ -88,7 +96,7 @@ public class SolutionSynthRunner
         return proposals;
     }
 
-    private async Task<string?> GenerateProposalForPersona(Kernel kernel, IKernelPlugin personaFunctions, string scenarioDescription, string persona)
+    private async Task<string?> GenerateProposalForPersona(Kernel kernel, KernelPlugin personaFunctions, string scenarioDescription, string persona)
     {
         var proposalResult = await _pipeline!.ExecuteAsync(
             async token => await kernel.InvokeAsync(personaFunctions["Proposer"],
